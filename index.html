@@ -1,0 +1,1094 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusConnect | Campus Events</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --navy: #17243b;
+  --blue: #5368d9;
+  --purple: #8269db;
+  --bg: #f5f6fb;
+  --white: #ffffff;
+  --muted: #858da0;
+  --border: #e9ebf2;
+  --shadow: 0 12px 35px rgba(34, 45, 75, .07);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--navy);
+  font-family: "DM Sans", sans-serif;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: min(1150px, calc(100% - 40px));
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+  background: white;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 800 21px "Manrope", sans-serif;
+  letter-spacing: -.7px;
+}
+
+.logo-icon {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--navy);
+  color: white;
+  font-size: 20px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* BUTTONS */
+
+.primary-btn {
+  border: 0;
+  background: var(--blue);
+  color: white;
+  padding: 12px 19px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.primary-btn:hover {
+  background: #4055c6;
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--navy);
+  padding: 11px 17px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+/* HERO */
+
+.hero {
+  padding: 53px 0 35px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: #e9ebff;
+  color: var(--blue);
+  padding: 8px 12px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font: 800 clamp(37px, 5vw, 58px)/1.1 "Manrope", sans-serif;
+  letter-spacing: -2.5px;
+  margin: 18px 0 14px;
+}
+
+.hero h1 span {
+  color: var(--blue);
+}
+
+.hero p {
+  max-width: 530px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.hero-visual {
+  min-height: 220px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #273b70, #7966d7);
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.hero-visual::before,
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #ffffff30;
+  border-radius: 50%;
+}
+
+.hero-visual::before {
+  width: 260px;
+  height: 260px;
+}
+
+.hero-visual::after {
+  width: 340px;
+  height: 340px;
+}
+
+.hero-emoji {
+  position: relative;
+  z-index: 1;
+  font-size: 85px;
+  filter: drop-shadow(0 15px 15px #101d3d55);
+}
+
+.floating {
+  position: absolute;
+  z-index: 2;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: white;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.float-a { top: 24px; left: 22px; }
+.float-b { right: 20px; bottom: 23px; }
+
+/* STATS */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.stat-number {
+  margin-top: 7px;
+  font: 800 27px "Manrope", sans-serif;
+}
+
+/* EVENTS SECTION */
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  font: 800 24px "Manrope", sans-serif;
+  letter-spacing: -.7px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 11px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 190px;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  background: white;
+  color: var(--navy);
+}
+
+.search-box:focus,
+select:focus,
+input:focus,
+textarea:focus {
+  border-color: var(--blue);
+  outline: 2px solid #5368d920;
+}
+
+select {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  color: var(--navy);
+  outline: none;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.event-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: .2s;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+}
+
+.event-banner {
+  min-height: 135px;
+  display: grid;
+  place-items: center;
+  font-size: 49px;
+  position: relative;
+}
+
+.event-banner.tech { background: #e9edff; }
+.event-banner.culture { background: #fff0e9; }
+.event-banner.sports { background: #e7f6ef; }
+.event-banner.workshop { background: #f1eaff; }
+.event-banner.social { background: #fff4d9; }
+
+.category-label {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  background: white;
+  padding: 6px 9px;
+  border-radius: 7px;
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.event-content {
+  padding: 17px;
+}
+
+.event-date {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+}
+
+.event-content h3 {
+  font: 800 17px "Manrope", sans-serif;
+  margin: 9px 0;
+}
+
+.event-description {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+  min-height: 40px;
+}
+
+.event-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 14px 0;
+  color: #657087;
+  font-size: 11px;
+}
+
+.event-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.event-footer button {
+  border: 0;
+  background: #eef0ff;
+  color: var(--blue);
+  padding: 8px 11px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.event-footer button.saved {
+  background: #e6f5ec;
+  color: #28774a;
+}
+
+.event-footer .delete-btn {
+  background: #fff0f0;
+  color: #b64b4b;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 55px 15px;
+  text-align: center;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: #101a2b99;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-box {
+  width: min(480px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  padding: 26px;
+  border-radius: 20px;
+  box-shadow: 0 25px 70px #101a2b40;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  font: 800 22px "Manrope", sans-serif;
+}
+
+.close-btn {
+  border: 0;
+  background: #f0f1f5;
+  width: 33px;
+  height: 33px;
+  border-radius: 9px;
+  font-size: 18px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  outline: none;
+  color: var(--navy);
+  background: white;
+}
+
+.form-group textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+.form-submit {
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 35px 0 25px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width:560px) {
+  .container {
+    width: calc(100% - 26px);
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 13px;
+  }
+
+  .stat-number {
+    font-size: 21px;
+  }
+
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .section-heading .primary-btn {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">
+      <div class="logo-icon">✦</div>
+      CampusConnect
+    </div>
+
+    <div class="nav-right">
+      <span class="nav-label">Discover your campus life</span>
+      <button class="primary-btn" id="openModal">
+        + Add event
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow">🎓 Your campus, your community</div>
+
+      <h1>
+        Make every<br>
+        <span>moment count.</span>
+      </h1>
+
+      <p>
+        Never miss what's happening around you. Discover campus
+        events, explore new interests, meet people and make your
+        student life more exciting.
+      </p>
+    </div>
+
+    <div class="hero-visual">
+      <div class="floating float-a">🎤 Live events</div>
+      <div class="hero-emoji">🎪</div>
+      <div class="floating float-b">✨ Find your people</div>
+    </div>
+  </section>
+
+  <!-- STATISTICS -->
+  <section class="stats">
+    <div class="stat-card">
+      <div class="stat-label">Total events</div>
+      <div class="stat-number" id="totalEvents">0</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-label">Upcoming events</div>
+      <div class="stat-number" id="upcomingEvents">0</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-label">Saved events</div>
+      <div class="stat-number" id="savedEvents">0</div>
+    </div>
+  </section>
+
+  <!-- EVENT LIST -->
+  <section>
+    <div class="section-heading">
+      <div>
+        <h2>Explore campus events</h2>
+        <p>Find something exciting happening on campus.</p>
+      </div>
+      <button class="secondary-btn" id="showAllBtn">
+        Show all events
+      </button>
+    </div>
+
+    <div class="toolbar">
+      <input
+        type="search"
+        class="search-box"
+        id="searchInput"
+        placeholder="🔍 Search events or venues..."
+      >
+
+      <select id="categoryFilter">
+        <option value="All">All categories</option>
+        <option value="Technical">Technical</option>
+        <option value="Cultural">Cultural</option>
+        <option value="Sports">Sports</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Social">Social</option>
+      </select>
+
+      <select id="viewFilter">
+        <option value="all">All events</option>
+        <option value="saved">Saved events</option>
+      </select>
+    </div>
+
+    <div class="event-grid" id="eventGrid"></div>
+  </section>
+
+</main>
+
+<footer>
+  CAMPUSCONNECT · Bringing students and campus experiences together.
+  <br><br>
+  A frontend-only campus event management concept.
+</footer>
+
+<!-- ADD EVENT MODAL -->
+<div class="modal" id="eventModal">
+  <div class="modal-box">
+
+    <div class="modal-header">
+      <h2>Create an event</h2>
+      <button class="close-btn" id="closeModal">×</button>
+    </div>
+
+    <form id="eventForm">
+
+      <div class="form-group">
+        <label for="eventName">Event name</label>
+        <input id="eventName" type="text"
+          placeholder="e.g. Annual Tech Fest" required>
+      </div>
+
+      <div class="form-group">
+        <label for="eventCategory">Category</label>
+        <select id="eventCategory" required>
+          <option value="">Choose category</option>
+          <option value="Technical">Technical</option>
+          <option value="Cultural">Cultural</option>
+          <option value="Sports">Sports</option>
+          <option value="Workshop">Workshop</option>
+          <option value="Social">Social</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="eventDate">Event date</label>
+        <input id="eventDate" type="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="eventTime">Event time</label>
+        <input id="eventTime" type="time" required>
+      </div>
+
+      <div class="form-group">
+        <label for="eventVenue">Venue</label>
+        <input id="eventVenue" type="text"
+          placeholder="e.g. Main Auditorium" required>
+      </div>
+
+      <div class="form-group">
+        <label for="eventDescription">Description</label>
+        <textarea id="eventDescription"
+          placeholder="Tell students what this event is about..."
+          required></textarea>
+      </div>
+
+      <button class="primary-btn form-submit" type="submit">
+        Publish event
+      </button>
+
+    </form>
+  </div>
+</div>
+
+<script>
+
+// Sample campus events shown when the website opens for the first time.
+const defaultEvents = [
+  {
+    id: 1,
+    title: "Innovation & Tech Fest",
+    category: "Technical",
+    date: "2026-11-15",
+    time: "10:00",
+    venue: "University Auditorium",
+    description: "Explore student innovations, exciting tech projects and creative ideas.",
+    emoji: "💻",
+    saved: false,
+    custom: false
+  },
+  {
+    id: 2,
+    title: "Cultural Night",
+    category: "Cultural",
+    date: "2026-11-18",
+    time: "18:00",
+    venue: "Open Air Theatre",
+    description: "An evening filled with music, dance, performances and campus memories.",
+    emoji: "🎭",
+    saved: false,
+    custom: false
+  },
+  {
+    id: 3,
+    title: "Inter-College Sports Meet",
+    category: "Sports",
+    date: "2026-11-21",
+    time: "09:00",
+    venue: "University Sports Complex",
+    description: "Bring your energy and cheer for your favourite teams.",
+    emoji: "🏆",
+    saved: false,
+    custom: false
+  },
+  {
+    id: 4,
+    title: "AI & Machine Learning Workshop",
+    category: "Workshop",
+    date: "2026-11-24",
+    time: "11:00",
+    venue: "Computer Lab 3",
+    description: "Learn practical AI concepts through an interactive student workshop.",
+    emoji: "🤖",
+    saved: false,
+    custom: false
+  },
+  {
+    id: 5,
+    title: "Campus Green Day",
+    category: "Social",
+    date: "2026-11-27",
+    time: "08:30",
+    venue: "Central Lawn",
+    description: "Join fellow students for a campus clean-up and sustainability drive.",
+    emoji: "🌱",
+    saved: false,
+    custom: false
+  },
+  {
+    id: 6,
+    title: "Design Thinking Sprint",
+    category: "Technical",
+    date: "2026-11-30",
+    time: "14:00",
+    venue: "Innovation Centre",
+    description: "Work in teams to develop creative solutions to everyday problems.",
+    emoji: "💡",
+    saved: false,
+    custom: false
+  }
+];
+
+// Storage key used to save event information in this browser.
+const STORAGE_KEY = "campusconnect-events-v1";
+
+// Load previously saved events or show the sample events.
+let events;
+
+try {
+  const storedEvents = localStorage.getItem(STORAGE_KEY);
+  events = storedEvents ? JSON.parse(storedEvents) : defaultEvents;
+
+  if (!Array.isArray(events)) {
+    events = defaultEvents;
+  }
+} catch (error) {
+  events = defaultEvents;
+}
+
+// Save all event changes in localStorage.
+function saveEvents() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
+}
+
+// Return an emoji based on the selected category.
+function getEmoji(category) {
+  const emojis = {
+    Technical: "💻",
+    Cultural: "🎭",
+    Sports: "🏆",
+    Workshop: "💡",
+    Social: "🌱"
+  };
+
+  return emojis[category] || "📅";
+}
+
+// Format the event date for display.
+function formatDate(dateString) {
+  const date = new Date(dateString + "T00:00:00");
+
+  return date.toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
+}
+
+// Update the dashboard statistics.
+function updateStats() {
+  const today = new Date().toISOString().slice(0, 10);
+
+  const upcoming = events.filter(event => event.date >= today).length;
+  const saved = events.filter(event => event.saved).length;
+
+  document.getElementById("totalEvents").textContent = events.length;
+  document.getElementById("upcomingEvents").textContent = upcoming;
+  document.getElementById("savedEvents").textContent = saved;
+}
+
+// Display the event cards.
+function renderEvents() {
+  const grid = document.getElementById("eventGrid");
+
+  const search = document
+    .getElementById("searchInput")
+    .value.toLowerCase()
+    .trim();
+
+  const category = document.getElementById("categoryFilter").value;
+  const view = document.getElementById("viewFilter").value;
+
+  let filtered = events.filter(event => {
+    const matchesSearch =
+      event.title.toLowerCase().includes(search) ||
+      event.venue.toLowerCase().includes(search) ||
+      event.description.toLowerCase().includes(search);
+
+    const matchesCategory =
+      category === "All" || event.category === category;
+
+    const matchesSaved =
+      view === "all" || event.saved === true;
+
+    return matchesSearch && matchesCategory && matchesSaved;
+  });
+
+  // Sort events by date.
+  filtered.sort((a, b) => {
+    return (a.date + a.time).localeCompare(b.date + b.time);
+  });
+
+  grid.innerHTML = "";
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div style="font-size:35px">📭</div>
+        <h3>No events found</h3>
+        <p>Try another search or add a new campus event.</p>
+      </div>
+    `;
+    updateStats();
+    return;
+  }
+
+  filtered.forEach(event => {
+    const card = document.createElement("article");
+    card.className = "event-card";
+
+    const banner = document.createElement("div");
+    banner.className = `event-banner ${event.category.toLowerCase()}`;
+    banner.innerHTML = `
+      <span class="category-label">${escapeHTML(event.category)}</span>
+      <span>${getEmoji(event.category)}</span>
+    `;
+
+    const content = document.createElement("div");
+    content.className = "event-content";
+
+    const date = document.createElement("div");
+    date.className = "event-date";
+    date.textContent = formatDate(event.date);
+
+    const title = document.createElement("h3");
+    title.textContent = event.title;
+
+    const description = document.createElement("p");
+    description.className = "event-description";
+    description.textContent = event.description;
+
+    const info = document.createElement("div");
+    info.className = "event-info";
+    info.innerHTML = `
+      <span>🕒 ${escapeHTML(event.time)}</span>
+      <span>📍 ${escapeHTML(event.venue)}</span>
+    `;
+
+    const footer = document.createElement("div");
+    footer.className = "event-footer";
+
+    const saveButton = document.createElement("button");
+    saveButton.className = event.saved ? "saved" : "";
+    saveButton.textContent = event.saved ? "✓ Saved" : "♡ Save";
+    saveButton.addEventListener("click", () => toggleSaved(event.id));
+
+    footer.appendChild(saveButton);
+
+    // Only user-created events can be deleted.
+    if (event.custom) {
+      const deleteButton = document.createElement("button");
+      deleteButton.className = "delete-btn";
+      deleteButton.textContent = "Delete";
+
+      deleteButton.addEventListener("click", () => {
+        deleteEvent(event.id);
+      });
+
+      footer.appendChild(deleteButton);
+    }
+
+    content.append(date, title, description, info, footer);
+    card.append(banner, content);
+    grid.appendChild(card);
+  });
+
+  updateStats();
+}
+
+// Escape text before placing it into HTML.
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => {
+    const replacements = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    };
+
+    return replacements[character];
+  });
+}
+
+// Save or unsave an event.
+function toggleSaved(id) {
+  events = events.map(event => {
+    if (event.id === id) {
+      return {
+        ...event,
+        saved: !event.saved
+      };
+    }
+
+    return event;
+  });
+
+  saveEvents();
+  renderEvents();
+}
+
+// Delete a custom event.
+function deleteEvent(id) {
+  const confirmed = confirm("Are you sure you want to delete this event?");
+
+  if (!confirmed) return;
+
+  events = events.filter(event => event.id !== id);
+
+  saveEvents();
+  renderEvents();
+}
+
+// Open the add-event modal.
+function openModal() {
+  document.getElementById("eventModal").classList.add("open");
+}
+
+// Close the add-event modal.
+function closeModal() {
+  document.getElementById("eventModal").classList.remove("open");
+}
+
+// Handle new event submission.
+document.getElementById("eventForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const newEvent = {
+    id: Date.now(),
+    title: document.getElementById("eventName").value.trim(),
+    category: document.getElementById("eventCategory").value,
+    date: document.getElementById("eventDate").value,
+    time: document.getElementById("eventTime").value,
+    venue: document.getElementById("eventVenue").value.trim(),
+    description: document.getElementById("eventDescription").value.trim(),
+    emoji: getEmoji(document.getElementById("eventCategory").value),
+    saved: false,
+    custom: true
+  };
+
+  // Prevent past-dated events.
+  const today = new Date().toISOString().slice(0, 10);
+
+  if (newEvent.date < today) {
+    alert("Please select today or a future date.");
+    return;
+  }
+
+  events.push(newEvent);
+
+  saveEvents();
+  renderEvents();
+
+  this.reset();
+  closeModal();
+
+  alert("Your event has been added successfully!");
+});
+
+// Search events.
+document.getElementById("searchInput")
+  .addEventListener("input", renderEvents);
+
+// Filter by category.
+document.getElementById("categoryFilter")
+  .addEventListener("change", renderEvents);
+
+// Show all or saved events.
+document.getElementById("viewFilter")
+  .addEventListener("change", renderEvents);
+
+// Show all events button.
+document.getElementById("showAllBtn").addEventListener("click", () => {
+  document.getElementById("searchInput").value = "";
+  document.getElementById("categoryFilter").value = "All";
+  document.getElementById("viewFilter").value = "all";
+
+  renderEvents();
+});
+
+// Modal controls.
+document.getElementById("openModal")
+  .addEventListener("click", openModal);
+
+document.getElementById("closeModal")
+  .addEventListener("click", closeModal);
+
+// Close modal when clicking outside the form.
+document.getElementById("eventModal")
+  .addEventListener("click", function(e) {
+    if (e.target === this) {
+      closeModal();
+    }
+  });
+
+// Initial page rendering.
+renderEvents();
+
+</script>
+
+</body>
+</html>
